@@ -17,5 +17,5 @@ class Student(models.Model):
     school = models.ForeignKey(School, related_name='students', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return f'{str(self.name)} || {str(self.school)}'
 
