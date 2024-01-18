@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView, ListView, DetailView
+from django.views.generic import (View, TemplateView, 
+                                  ListView, DetailView, CreateView,
+                                  UpdateView, DeleteView)
 from . import models
 # Create your views here.
 
@@ -24,7 +26,7 @@ from . import models
 
 class IndexView(TemplateView):
     template_name = 'index.html'
-    
+
 class SchoolListView(ListView):
     #detta gör så att i school_list döper man om school_list till schools
     context_object_name = 'schools'
@@ -35,4 +37,7 @@ class SchoolDetailView(DetailView):
     model = models.School
     template_name = 'basic_app/school_detail.html'
 
+class SchoolCreateView(CreateView):
+    fields = ('name', 'principal', 'location')
+    model = models.School
 
